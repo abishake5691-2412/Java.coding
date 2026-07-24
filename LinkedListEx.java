@@ -9,7 +9,7 @@ class Node{
 class LinkedList{
     Node head;
     public void insertAtBegining(int data){
-        Node  newNode=new Node(data);
+        Node newNode=new Node(data);
         newNode.next=head;
         head=newNode;
     }
@@ -20,23 +20,34 @@ class LinkedList{
             head=newNode;
         }
         while(temp.next!=null){
-            temp.next=temp;
+            temp=temp.next;
         }
         temp.next=newNode;
     }
-public class LinkedList {
+    public boolean search(int data){
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data==data) return true;
+            temp=temp.next;
+        }
+        return false;
+    }
+}
+public class LinkedList{
     public static void main(String[] args) {
-        LinkedList list=new Linkedlist();
-        list.insertATBegining(30);
-        list.insertATBegining(20);
-        list.insertATBegining(10);
-        list.insertATEnd(40);
+        LinkedList list=new LinkedList();
+        list.insertAtBegining(30);
+        list.insertAtBegining(20);
+        list.insertAtBegining(10);
+        list.insertAtEnd(40);
+        System.out.println(list.search(30));
+        System.out.println(list.search(99));
+        
         Node temp=list.head;
         while(temp!=null){
-            System.out.println(temp.data+"->");
+            System.out.print(temp.data+"->");
             temp=temp.next;
         }
         System.out.println("null");
-        }
     }
 }
